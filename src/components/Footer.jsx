@@ -49,7 +49,7 @@ export default function Footer() {
             </div>
 
             <p style={{ fontSize: '0.85rem', color: '#575783', lineHeight: 1.6, marginBottom: '18px' }}>
-              Cloud spending intelligence & deterministic FinOps platform. Built for modern engineering teams, finance leaders, and DevOps architects.
+              Cloud spending intelligence & deterministic cloud cost platform. Built for modern engineering teams, finance leaders, and DevOps architects.
             </p>
 
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '0.78rem', color: '#114e0b', backgroundColor: '#ebfff5', padding: '4px 10px', borderRadius: '9999px', fontWeight: 600 }}>
@@ -128,7 +128,7 @@ export default function Footer() {
             color: '#575783'
           }}
         >
-          <p>© {currentYear} CloudLens Inc. All rights reserved. Deterministic FinOps intelligence.</p>
+          <p>© {currentYear} CloudLens Inc. All rights reserved. Deterministic cloud cost intelligence.</p>
           <div style={{ display: 'flex', gap: '20px' }}>
             <span style={{ cursor: 'pointer' }}>Privacy Policy</span>
             <span style={{ cursor: 'pointer' }}>Terms of Service</span>

@@ -190,7 +190,7 @@ export default function AppSidebar() {
           </div>
           <div style={{ overflow: 'hidden', flex: 1 }}>
             <div style={{ fontSize: '0.82rem', fontWeight: 600, color: '#181824', whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}>
-              FinOps Lead
+              Cloud Cost Lead
             </div>
             <div style={{ fontSize: '0.74rem', color: '#575783', whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}>
               Acme Production

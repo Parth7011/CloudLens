@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from '../components/Navbar.jsx';
 import HeroSection from '../components/HeroSection.jsx';
 import DashboardPreviewSection from '../components/DashboardPreviewSection.jsx';
-import FinOpsLayersSection from '../components/FinOpsLayersSection.jsx';
+import InfrastructureLayersSection from '../components/InfrastructureLayersSection.jsx';
 import SavingsCalculatorSection from '../components/SavingsCalculatorSection.jsx';
 import FinalCTASection from '../components/FinalCTASection.jsx';
 import Footer from '../components/Footer.jsx';
@@ -14,7 +14,7 @@ export default function LandingPage() {
       <main>
         <HeroSection />
         <DashboardPreviewSection />
-        <FinOpsLayersSection />
+        <InfrastructureLayersSection />
         <SavingsCalculatorSection />
         <FinalCTASection />
       </main>

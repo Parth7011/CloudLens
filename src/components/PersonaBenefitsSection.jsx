@@ -20,7 +20,7 @@ const PERSONAS = [
   {
     id: 'finance',
     icon: LineChart,
-    role: "Finance & FinOps Leaders",
+    role: "Finance & Operations Leaders",
     tagline: "Capital Predictability",
     headline: "Deterministic budget guardrails and instant showback.",
     description: "Replace cumbersome manual Excel spreadsheets with automated, synchronized billing summaries and instant CSV exports.",

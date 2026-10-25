@@ -132,7 +132,7 @@ export default function OverviewPage() {
                 <TopServicesCard topServices={kpis?.topServices} />
               </div>
 
-              {/* Row 3: Operational Triage & FinOps Actions */}
+              {/* Row 3: Operational Triage & Cost Actions */}
               <div
                 style={{
                   display: 'grid',
@@ -143,7 +143,7 @@ export default function OverviewPage() {
                 {/* Recent Flagged Anomalies */}
                 <RecentAnomaliesCard />
 
-                {/* Quick Action & FinOps Recommendations Hub */}
+                {/* Quick Action & Cost Recommendations Hub */}
                 <div
                   style={{
                     backgroundColor: '#ffffff',
@@ -160,7 +160,7 @@ export default function OverviewPage() {
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
                       <div>
                         <h3 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#181824' }}>
-                          FinOps Health & Governance
+                          Cloud Cost Governance & Health
                         </h3>
                         <p style={{ fontSize: '0.8rem', color: '#575783', marginTop: '2px' }}>
                           Deterministic health status across active policies

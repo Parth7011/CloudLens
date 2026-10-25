@@ -36,7 +36,7 @@ export default function FinalCTASection() {
                 fontWeight: 700
               }}
             >
-              <span>CloudLens FinOps Platform</span>
+              <span>CloudLens Cloud Cost Platform</span>
             </div>
           </div>
 

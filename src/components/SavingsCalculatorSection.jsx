@@ -240,7 +240,7 @@ export default function SavingsCalculatorSection() {
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.8rem', color: '#575783' }}>
               <CheckCircle2 size={16} color="#2d62ff" />
-              <span>Based on verified FinOps Foundation industry benchmarks</span>
+              <span>Based on verified cloud cost management industry benchmarks</span>
             </div>
 
             <Link

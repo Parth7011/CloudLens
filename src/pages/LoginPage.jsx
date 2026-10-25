@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Eye, EyeOff, AlertCircle } from 'lucide-react';
+import { Eye, EyeOff, AlertCircle, ArrowLeft } from 'lucide-react';
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -49,45 +49,76 @@ export default function LoginPage() {
         padding: '32px 16px'
       }}
     >
-      {/* Brand Header */}
-      <Link
-        to="/"
-        style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '10px',
-          textDecoration: 'none',
-          marginBottom: '28px'
-        }}
-      >
-        <div
+      {/* Top Navigation Row: Back to Home & Brand */}
+      <div style={{ width: '100%', maxWidth: '420px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
+        <Link
+          to="/"
           style={{
-            width: '34px',
-            height: '34px',
-            borderRadius: '10px',
-            backgroundColor: '#181824',
-            display: 'flex',
+            display: 'inline-flex',
             alignItems: 'center',
-            justifyContent: 'center'
+            gap: '6px',
+            fontSize: '0.85rem',
+            fontWeight: 600,
+            color: '#575783',
+            textDecoration: 'none',
+            padding: '6px 12px',
+            borderRadius: '9999px',
+            backgroundColor: '#ffffff',
+            border: '1px solid #e0e0eb',
+            transition: 'all 0.15s ease'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.color = '#181824';
+            e.currentTarget.style.borderColor = '#cdcddd';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.color = '#575783';
+            e.currentTarget.style.borderColor = '#e0e0eb';
           }}
         >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="12" r="8" stroke="#ffffff" strokeWidth="2.5" />
-            <circle cx="12" cy="12" r="3" fill="#2d62ff" />
-          </svg>
-        </div>
-        <span
+          <ArrowLeft size={14} />
+          <span>Back to home</span>
+        </Link>
+
+        {/* Brand Header */}
+        <Link
+          to="/"
           style={{
-            fontFamily: 'var(--font-display)',
-            fontWeight: 800,
-            fontSize: '1.35rem',
-            color: '#181824',
-            letterSpacing: '-0.025em'
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '8px',
+            textDecoration: 'none'
           }}
         >
-          CloudLens
-        </span>
-      </Link>
+          <div
+            style={{
+              width: '28px',
+              height: '28px',
+              borderRadius: '8px',
+              backgroundColor: '#181824',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="8" stroke="#ffffff" strokeWidth="2.5" />
+              <circle cx="12" cy="12" r="3" fill="#2d62ff" />
+            </svg>
+          </div>
+          <span
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontWeight: 800,
+              fontSize: '1.2rem',
+              color: '#181824',
+              letterSpacing: '-0.025em'
+            }}
+          >
+            CloudLens
+          </span>
+        </Link>
+      </div>
 
       {/* Card Container */}
       <div

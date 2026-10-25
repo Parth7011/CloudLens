@@ -4,9 +4,9 @@ import { Quote } from 'lucide-react';
 const TESTIMONIALS = [
   {
     company: "Lyft",
-    tagline: "Infrastructure Cloud FinOps",
+    tagline: "Infrastructure Cloud Operations",
     quote: "“Consolidating multi-region AWS compute down to clear unit economics gave our engineering teams immediate feedback on their architecture decisions.”",
-    author: "Infrastructure FinOps Lead",
+    author: "Infrastructure Cloud Operations Lead",
     impact: "-26% Idle EC2 Spend"
   },
   {
@@ -107,7 +107,7 @@ export default function SocialProofMarquee() {
             marginBottom: '28px'
           }}
         >
-          Trusted by engineering and FinOps teams at scale
+          Trusted by engineering and cloud teams at scale
         </p>
 
         {/* Coda-Style Editorial Logo Bar */}

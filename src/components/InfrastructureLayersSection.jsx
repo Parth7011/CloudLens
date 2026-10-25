@@ -40,7 +40,7 @@ const LAYERS = [
   }
 ];
 
-export default function FinOpsLayersSection() {
+export default function InfrastructureLayersSection() {
   const [activeLayer, setActiveLayer] = useState(0);
 
   const prev = () => setActiveLayer((curr) => (curr > 0 ? curr - 1 : LAYERS.length - 1));
