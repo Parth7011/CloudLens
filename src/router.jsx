@@ -6,6 +6,7 @@ import SignupPage from './pages/SignupPage.jsx';
 import OverviewPage from './pages/OverviewPage.jsx';
 import CostExplorerPage from './pages/CostExplorerPage.jsx';
 import BudgetsPage from './pages/BudgetsPage.jsx';
+import AnomaliesPage from './pages/AnomaliesPage.jsx';
 import PagePlaceholder from './components/PagePlaceholder.jsx';
 
 export default function AppRouter() {
@@ -32,22 +33,7 @@ export default function AppRouter() {
       <Route path="/budgets" element={<BudgetsPage />} />
 
       {/* Primary Page 7: Anomaly Detection Center */}
-      <Route
-        path="/anomalies"
-        element={
-          <PagePlaceholder
-            pageNumber={7}
-            pairOwner="Pair 1"
-            title="Rule-Based Anomaly Detection"
-            description="Algorithmic spike indicators showing impact amount, service, date, and investigation status."
-            keyFeatures={[
-              "Deterministic threshold rules (e.g. RDS-FAILOVER-DEV)",
-              "Status lifecycle tracking (New, Investigating, Resolved)",
-              "Severity levels (Low, Medium, High)"
-            ]}
-          />
-        }
-      />
+      <Route path="/anomalies" element={<AnomaliesPage />} />
 
       {/* Primary Pages 8–12: Pair 2 Ownership */}
       <Route
