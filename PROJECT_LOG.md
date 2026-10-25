@@ -4,19 +4,23 @@
 **Rule:** Update this file after every meaningful work session. Never fabricate progress or delete historical entries.
 
 ## Current status
-- **Phase:** Phase 1 Foundation & Pages 1–3 Complete (Landing Page, Login, Sign Up)
-- **Frontend:** React + Vite + Three.js application operational at `http://localhost:5173/`
+- **Phase:** Phase 1 Foundation & Pages 1–7 Complete (Landing Page, Login, Sign Up, Overview, Cost Explorer, Budgets, Anomalies)
+- **Frontend:** React + Vite application operational at `http://localhost:5173/`
 - **Backend:** Not started
 - **Database:** Not created
 - **AWS integration:** Not started (realistic mock data isolated in repository layer)
 - **AI:** Explicitly deferred
-- **Design direction:** Minimal finance-grade aesthetic with strict 5-color theme: Charcoal (`#202020` hero backgrounds and dark sections), Warm Cream (`#F8F9EB` main light background and text on dark), Olive Cream (`#EDEEE1` feature bands and alternate sections), Mint Green (`#AAFDC0` small highlights and decorative details), and Muted Olive (`#5A5A4F` secondary text on light backgrounds).
+- **Design direction:** Modern, light SaaS aesthetic with obsidian/slate accents, crisp cards, hairline borders, and electric blue primary highlights.
 - **Primary pages planned:** 12
-- **Page 1 (Landing Page):** Minimal, streamlined finance presentation with glossy 3D visual centerpiece
-- **Page 2 (Login):** Complete with client validation, 1-click demo login, remember me, and session transition
-- **Page 3 (Sign Up):** Complete with account onboarding, password strength meter, quick fill, and terms confirmation
-- **Pages 4–12:** Routable with contract-compliant placeholder views aligned to CloudLens styling
-- **Pair 1:** Landing Page (done), Login (done), Sign Up (done), Overview, Cost Explorer, Budgets, Anomalies
+- **Page 1 (Landing Page):** Clean modern SaaS presentation with light theme and interactive calculator
+- **Page 2 (Login):** Complete with client validation, remember me, back-to-home navigation, and session transition
+- **Page 3 (Sign Up):** Complete with account onboarding, validation, back-to-home navigation, and quick access
+- **Page 4 (Overview):** Executive dashboard with KPI summary, daily spend trajectory chart, service breakdown, and anomaly alerts
+- **Page 5 (Cost Explorer):** Multi-dimensional filters, daily run-rate visualizer, sortable/paginated records, and CSV export
+- **Page 6 (Budgets):** Macro spend ceiling, active guardrail cards, progress bars, threshold adjustment, and budget creation
+- **Page 7 (Anomalies):** KPI flags, severity/status filters, triage feed with live status transitions, and root-cause telemetry modal
+- **Pages 8–12:** Routable with contract-compliant placeholder views aligned to CloudLens styling
+- **Pair 1:** Landing Page (done), Login (done), Sign Up (done), Overview (done), Cost Explorer (done), Budgets (done), Anomalies (done)
 - **Pair 2:** Optimization, Reports, Integrations, Notifications, Settings
 
 ## Current decisions
@@ -320,4 +324,90 @@
 - **Tests & Checks Run:**
   - `npm run build`: Succeeded in 709ms with 0 errors.
   - Dev server active at `http://localhost:5173/overview` verified returning HTTP 200 OK.
-- **Next Steps:** Pair 1 implements Page 5 (Multidimensional Cost Explorer at `/costs`).
+- **Next Steps:** Pair 1 implements Page 5 (Multidimensional Cost Explorer at `/costs`), Page 6 (Budgets & Pacing at `/budgets`), and Page 7 (Anomaly Detection Center at `/anomalies`).
+
+### 2026-10-26 (Session 11) — FinOps Terminology Eradication, Auth Back-to-Home Navigation & Pages 5–7 Plan
+- **Scope:** 
+  1. Complete removal of all instances of "FinOps" across the entire codebase in favor of "CloudLens" and "Cloud Cost Management".
+  2. Added prominent "← Back to home" navigation buttons on both Login and Sign Up pages.
+  3. Prepared comprehensive implementation plan for the next 3 primary pages directly linked to Overview (Page 5: Cost Explorer, Page 6: Budgets, Page 7: Anomalies).
+  4. Adhering strictly to review-first workflow: no git commits made.
+- **Features Completed:**
+  - **Terminology Cleanup ("FinOps" $\rightarrow$ "CloudLens" / "Cloud Cost Management"):**
+    - `index.html`: Updated page title and meta description.
+    - `src/components/SavingsCalculatorSection.jsx`: Replaced "FinOps Foundation industry benchmarks" with "verified cloud cost industry benchmarks".
+    - `src/components/SocialProofMarquee.jsx`: Replaced roles and copy to "Cloud Cost Lead" and "Trusted by engineering and finance teams at scale".
+    - `src/components/Footer.jsx`: Replaced platform descriptors with "cloud cost intelligence".
+    - `src/components/FinalCTASection.jsx`: Updated badge to "CloudLens Cloud Cost Platform".
+    - `src/components/AppSidebar.jsx`: Updated user profile title to "Cloud Cost Lead".
+    - `src/pages/OverviewPage.jsx`: Updated section heading to "Cloud Cost Governance & Health".
+    - `src/components/PersonaBenefitsSection.jsx`: Updated title to "Finance & Operations Leaders".
+    - `src/components/FinOpsLayersSection.jsx`: Renamed to `src/components/InfrastructureLayersSection.jsx` and updated imports in `src/pages/LandingPage.jsx`.
+    - Grep verification confirms **0 occurrences of "finops"** remain in `src/` and `index.html`.
+  - **Auth Navigation Enhancement (`src/pages/LoginPage.jsx` & `src/pages/SignupPage.jsx`):**
+    - Added dedicated `← Back to home` pill navigation buttons at the top of the authentication card container linking cleanly to `/`.
+  - **Implementation Plan Generated:**
+    - Documented in `next_3_pages_implementation_plan.md` covering architecture, data repository integration, state management, layouts, and interactive triage workflows for Pages 5, 6, and 7.
+- **Files Created/Modified:**
+  - `index.html` (modified)
+  - `src/components/AppSidebar.jsx` (modified)
+  - `src/components/FinalCTASection.jsx` (modified)
+  - `src/components/Footer.jsx` (modified)
+  - `src/components/PersonaBenefitsSection.jsx` (modified)
+  - `src/components/SavingsCalculatorSection.jsx` (modified)
+  - `src/components/SocialProofMarquee.jsx` (modified)
+  - `src/pages/LandingPage.jsx` (modified)
+  - `src/pages/LoginPage.jsx` (modified)
+  - `src/pages/OverviewPage.jsx` (modified)
+  - `src/pages/SignupPage.jsx` (modified)
+  - `src/components/InfrastructureLayersSection.jsx` (renamed from FinOpsLayersSection.jsx)
+  - `PROJECT_LOG.md` (updated)
+- **Tests & Checks Run:**
+  - `npm run build`: Succeeded in 627ms with 0 errors.
+  - HTTP curl checks: `http://localhost:5173/`, `/login`, `/signup`, `/overview` all returned HTTP 200 OK.
+  - Case-insensitive grep across `src/` and `index.html` for `finops` returned 0 matches.
+- **Decisions Made & Rules Adhered:**
+  - Strictly no `git commit` or `git push` performed, awaiting explicit user review and go-ahead.
+- **Next Steps:** Implement Page 5 (`/costs`), Page 6 (`/budgets`), and Page 7 (`/anomalies`) upon plan approval.
+
+### 2026-10-26 (Session 12) — Pages 5, 6, and 7 Implemented (Cost Explorer, Budgets, Anomalies)
+- **Scope:** Pair 1 Scope: Implemented the next 3 primary pages linked to Overview following user plan approval:
+  1. **Page 5: Multidimensional Cost Explorer (`/costs`)**
+  2. **Page 6: Budgets & Alerting (`/budgets`)**
+  3. **Page 7: Anomaly Detection Center (`/anomalies`)**
+  4. Adhered strictly to **no git commit** constraint until user finishes full review.
+- **Features Completed:**
+  - **Page 5: Cost Explorer (`src/pages/CostExplorerPage.jsx`):**
+    - Multi-dimensional filtering (Service, Region, Environment) with instant dynamic query updates and reset capability.
+    - Aggregated quick metric cards (Filtered Total Spend, Matched Line Items, Daily Run-Rate Average).
+    - Daily Spend Trajectory visualizer with interactive SVG column bars.
+    - Granular line-item table with multi-column sorting (Date, Service, Amount), real-time search filtering, and client-side pagination (8 rows/page).
+    - Functional "Export CSV" feature generating and downloading client-side `.csv` files with active filter parameters.
+  - **Page 6: Budgets & Alerting (`src/pages/BudgetsPage.jsx`):**
+    - Macro budget card showing overall spending ceiling ($50,000 cap), $42,850.40 current spend (85.7% consumed), $1,714/day burn velocity, and days remaining.
+    - Active policy cards grid displaying per-service and per-environment guardrails with color-coded utilization tracks (healthy, warning, critical).
+    - Interactive "Create Budget Policy" modal with category, cap, warning/critical threshold percent inputs, and Slack channel designation.
+    - Interactive "Edit Thresholds" modal allowing in-memory parameter updates.
+  - **Page 7: Anomaly Detection Center (`src/pages/AnomaliesPage.jsx`):**
+    - High-level KPI strip highlighting Active Flags (3), Uninvestigated (2), Total Financial Surge (+$1,745.00/day), and Detection Latency (<2.5 hours).
+    - Severity and status filtering with search by rule or resource ID.
+    - Anomaly triage feed cards with baseline vs. observed peak spend, surge amounts, and rule badges.
+    - Interactive triage controls: "Acknowledge", "Mark as Resolved", and "Dismiss (False Positive)" live state transitions.
+    - Deep-dive "Investigate Root Cause" modal displaying automated diagnosis and actionable remediation guidance.
+  - **Data Access & Routing (`src/mocks/costData.js`, `src/services/costRepository.js`, `src/router.jsx`):**
+    - Added `MOCK_BUDGETS` and `MOCK_ANOMALIES` datasets and expanded `MOCK_COST_RECORDS`.
+    - Extended `costRepository.js` with `getBudgets()` and `getAnomalies()`.
+    - Wired `/costs`, `/budgets`, and `/anomalies` in `AppRouter`.
+- **Files Created/Modified:**
+  - `src/pages/CostExplorerPage.jsx` (created)
+  - `src/pages/BudgetsPage.jsx` (created)
+  - `src/pages/AnomaliesPage.jsx` (created)
+  - `src/mocks/costData.js` (modified)
+  - `src/services/costRepository.js` (modified)
+  - `src/router.jsx` (modified)
+  - `PROJECT_LOG.md` (updated)
+- **Tests & Checks Run:**
+  - `npm run build`: Succeeded in 647ms with 0 errors (431 kB bundle size).
+  - HTTP checks: `http://localhost:5173/costs`, `/budgets`, `/anomalies` all returned HTTP 200 OK.
+  - Git status: Verified uncommitted; zero commits or pushes executed.
+- **Next Steps:** Await user review and confirmation before committing or advancing to next pages.
