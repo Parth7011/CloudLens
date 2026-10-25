@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage.jsx';
 import SignupPage from './pages/SignupPage.jsx';
 import OverviewPage from './pages/OverviewPage.jsx';
 import CostExplorerPage from './pages/CostExplorerPage.jsx';
+import BudgetsPage from './pages/BudgetsPage.jsx';
 import PagePlaceholder from './components/PagePlaceholder.jsx';
 
 export default function AppRouter() {
@@ -28,22 +29,7 @@ export default function AppRouter() {
       />
 
       {/* Primary Page 6: Budgets & Alerting */}
-      <Route
-        path="/budgets"
-        element={
-          <PagePlaceholder
-            pageNumber={6}
-            pairOwner="Pair 1"
-            title="Budget Management & Guardrails"
-            description="Threshold-based spending limits, utilization tracking, and budget creation/editing."
-            keyFeatures={[
-              "Deterministic budget utilization formula",
-              "Warning threshold badges (80%, 100%)",
-              "Create, edit, and delete budget modal dialogs"
-            ]}
-          />
-        }
-      />
+      <Route path="/budgets" element={<BudgetsPage />} />
 
       {/* Primary Page 7: Anomaly Detection Center */}
       <Route
