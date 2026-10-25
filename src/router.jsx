@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import LandingPage from './pages/LandingPage.jsx';
 import LoginPage from './pages/LoginPage.jsx';
 import SignupPage from './pages/SignupPage.jsx';
+import OverviewPage from './pages/OverviewPage.jsx';
 import PagePlaceholder from './components/PagePlaceholder.jsx';
 
 export default function AppRouter() {
@@ -16,22 +17,7 @@ export default function AppRouter() {
       <Route path="/signup" element={<SignupPage />} />
 
       {/* Primary Page 4: Executive Overview Dashboard */}
-      <Route
-        path="/overview"
-        element={
-          <PagePlaceholder
-            pageNumber={4}
-            pairOwner="Pair 1"
-            title="Executive Overview Dashboard"
-            description="High-level cloud spend KPIs, period-over-period comparison, daily trend charts, and top cost drivers."
-            keyFeatures={[
-              "Total Spend ($42.8k) and MoM delta calculation (+12.4%)",
-              "Budget utilization progress bar (85.7%)",
-              "Top 5 cost drivers breakdown (EC2, RDS, S3, Lambda, EKS)"
-            ]}
-          />
-        }
-      />
+      <Route path="/overview" element={<OverviewPage />} />
       <Route
         path="/costs"
         element={
