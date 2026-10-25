@@ -4,6 +4,7 @@ import LandingPage from './pages/LandingPage.jsx';
 import LoginPage from './pages/LoginPage.jsx';
 import SignupPage from './pages/SignupPage.jsx';
 import OverviewPage from './pages/OverviewPage.jsx';
+import CostExplorerPage from './pages/CostExplorerPage.jsx';
 import PagePlaceholder from './components/PagePlaceholder.jsx';
 
 export default function AppRouter() {
@@ -18,26 +19,15 @@ export default function AppRouter() {
 
       {/* Primary Page 4: Executive Overview Dashboard */}
       <Route path="/overview" element={<OverviewPage />} />
-      <Route
-        path="/costs"
-        element={
-          <PagePlaceholder
-            pageNumber={5}
-            pairOwner="Pair 1"
-            title="Multidimensional Cost Explorer"
-            description="Interactive time-series charting and tabular breakdown with multi-filter controls."
-            keyFeatures={[
-              "Filters by Date Range, Service, Region, and Environment",
-              "Column sorting and client-side pagination",
-              "Direct CSV export for filtered records"
-            ]}
-          />
-        }
-      />
+
+      {/* Primary Page 5: Multidimensional Cost Explorer */}
+      <Route path="/costs" element={<CostExplorerPage />} />
       <Route
         path="/cost-explorer"
         element={<Navigate to="/costs" replace />}
       />
+
+      {/* Primary Page 6: Budgets & Alerting */}
       <Route
         path="/budgets"
         element={
@@ -54,6 +44,8 @@ export default function AppRouter() {
           />
         }
       />
+
+      {/* Primary Page 7: Anomaly Detection Center */}
       <Route
         path="/anomalies"
         element={
