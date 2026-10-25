@@ -28,10 +28,16 @@ export const MOCK_COST_RECORDS = [
   { id: "c_18", provider: "aws", accountId: "123456789012", service: "Amazon S3", region: "us-east-1", environment: "production", usageDate: "2026-10-24", amount: 258.00, currency: "USD", costType: "actual" },
   { id: "c_19", provider: "aws", accountId: "123456789012", service: "Amazon S3", region: "us-east-1", environment: "production", usageDate: "2026-10-25", amount: 260.00, currency: "USD", costType: "actual" },
 
-  // AWS Lambda & EKS
+  // AWS Lambda & EKS & CloudFront & Others
   { id: "c_20", provider: "aws", accountId: "123456789012", service: "AWS Lambda", region: "ap-south-1", environment: "production", usageDate: "2026-10-24", amount: 145.80, currency: "USD", costType: "actual" },
   { id: "c_21", provider: "aws", accountId: "123456789012", service: "Amazon EKS", region: "ap-south-1", environment: "production", usageDate: "2026-10-24", amount: 215.00, currency: "USD", costType: "actual" },
-  { id: "c_22", provider: "aws", accountId: "123456789012", service: "Amazon CloudFront", region: "global", environment: "production", usageDate: "2026-10-24", amount: 98.40, currency: "USD", costType: "actual" }
+  { id: "c_22", provider: "aws", accountId: "123456789012", service: "Amazon CloudFront", region: "global", environment: "production", usageDate: "2026-10-24", amount: 98.40, currency: "USD", costType: "actual" },
+  { id: "c_23", provider: "aws", accountId: "123456789012", service: "Amazon EC2", region: "us-west-2", environment: "staging", usageDate: "2026-10-23", amount: 142.30, currency: "USD", costType: "actual" },
+  { id: "c_24", provider: "aws", accountId: "123456789012", service: "Amazon RDS", region: "us-east-1", environment: "staging", usageDate: "2026-10-23", amount: 112.50, currency: "USD", costType: "actual" },
+  { id: "c_25", provider: "aws", accountId: "123456789012", service: "AWS Lambda", region: "us-east-1", environment: "production", usageDate: "2026-10-25", amount: 154.20, currency: "USD", costType: "actual" },
+  { id: "c_26", provider: "aws", accountId: "123456789012", service: "Amazon EKS", region: "us-east-1", environment: "production", usageDate: "2026-10-25", amount: 230.10, currency: "USD", costType: "actual" },
+  { id: "c_27", provider: "aws", accountId: "123456789012", service: "Amazon DynamoDB", region: "ap-south-1", environment: "production", usageDate: "2026-10-25", amount: 84.60, currency: "USD", costType: "actual" },
+  { id: "c_28", provider: "aws", accountId: "123456789012", service: "Amazon S3", region: "eu-west-1", environment: "production", usageDate: "2026-10-24", amount: 165.00, currency: "USD", costType: "actual" }
 ];
 
 export const MOCK_OVERVIEW_KPIS = {
@@ -47,11 +53,11 @@ export const MOCK_OVERVIEW_KPIS = {
   potentialSavings: 6840.00,
   forecastEstimate: 47600.00,
   topServices: [
-    { service: "Amazon EC2", spend: 18240.00, percentage: 42.5, color: "#10b981" },
-    { service: "Amazon RDS", spend: 10450.00, percentage: 24.4, color: "#06b6d4" },
-    { service: "Amazon S3", spend: 6920.00, percentage: 16.1, color: "#818cf8" },
-    { service: "AWS Lambda", spend: 4180.00, percentage: 9.8, color: "#f59e0b" },
-    { service: "Amazon EKS", spend: 3060.40, percentage: 7.2, color: "#f43f5e" }
+    { service: "Amazon EC2", spend: 18240.00, percentage: 42.5, color: "#2d62ff" },
+    { service: "Amazon RDS", spend: 10450.00, percentage: 24.4, color: "#10b981" },
+    { service: "Amazon S3", spend: 6920.00, percentage: 16.1, color: "#f59e0b" },
+    { service: "AWS Lambda", spend: 4180.00, percentage: 9.8, color: "#8b5cf6" },
+    { service: "Amazon EKS", spend: 3060.40, percentage: 7.2, color: "#ec4899" }
   ],
   dailyTrend: [
     { date: "Oct 18", spend: 1320, budgetDaily: 1610 },
@@ -64,6 +70,133 @@ export const MOCK_OVERVIEW_KPIS = {
     { date: "Oct 25", spend: 1445, budgetDaily: 1610 }
   ]
 };
+
+/**
+ * Mock Budgets Dataset
+ */
+export const MOCK_BUDGETS = [
+  {
+    id: "b_prod_01",
+    name: "Production Consolidated Infrastructure",
+    category: "Organization",
+    scope: "production",
+    period: "Monthly",
+    cap: 50000,
+    currentSpend: 42850.40,
+    projectedSpend: 47600.00,
+    unit: "USD",
+    warningThreshold: 80,
+    criticalThreshold: 90,
+    channel: "#cloud-alerts-prod",
+    status: "warning", // healthy, warning, critical
+    lastUpdated: "2026-10-25 18:30 UTC"
+  },
+  {
+    id: "b_ec2_02",
+    name: "Core Compute Cluster (EC2 & ASG)",
+    category: "Compute",
+    scope: "Amazon EC2",
+    period: "Monthly",
+    cap: 20000,
+    currentSpend: 19280.00,
+    projectedSpend: 21800.00,
+    unit: "USD",
+    warningThreshold: 80,
+    criticalThreshold: 90,
+    channel: "#devops-compute",
+    status: "critical",
+    lastUpdated: "2026-10-25 18:30 UTC"
+  },
+  {
+    id: "b_rds_03",
+    name: "Managed Database Services (Aurora & RDS)",
+    category: "Databases",
+    scope: "Amazon RDS",
+    period: "Monthly",
+    cap: 12000,
+    currentSpend: 10450.00,
+    projectedSpend: 11400.00,
+    unit: "USD",
+    warningThreshold: 80,
+    criticalThreshold: 90,
+    channel: "#db-reliability",
+    status: "warning",
+    lastUpdated: "2026-10-25 18:30 UTC"
+  },
+  {
+    id: "b_stg_04",
+    name: "Non-Production Sandbox & Staging",
+    category: "Staging",
+    scope: "staging",
+    period: "Monthly",
+    cap: 10000,
+    currentSpend: 4200.00,
+    projectedSpend: 5100.00,
+    unit: "USD",
+    warningThreshold: 80,
+    criticalThreshold: 90,
+    channel: "#eng-sandbox",
+    status: "healthy",
+    lastUpdated: "2026-10-25 18:30 UTC"
+  }
+];
+
+/**
+ * Mock Anomalies Dataset
+ */
+export const MOCK_ANOMALIES = [
+  {
+    id: "anom_01",
+    ruleId: "SURGE-DEV-NAMESPACE",
+    title: "Uncontrolled Pod Scaler in Dev Namespace",
+    service: "Amazon EKS",
+    resourceId: "eks/staging-cluster/dev-payments",
+    region: "ap-south-1",
+    environment: "staging",
+    detectedAt: "2026-10-23 09:15 UTC",
+    severity: "critical", // critical, high, medium, low
+    status: "uninvestigated", // uninvestigated, acknowledged, resolved
+    baselineCost: 180.00,
+    observedCost: 1410.00,
+    surgeAmount: 1230.00,
+    rootCause: "A developer load-test deployment triggered Horizontal Pod Autoscaler to 120 replicas without cpu resource limits.",
+    recommendation: "Apply resource limits and downscale non-production namespace to max 6 pods."
+  },
+  {
+    id: "anom_02",
+    ruleId: "UNPLANNED-MULTI-AZ-FAILOVER",
+    title: "Aurora Multi-AZ Synchronous Replica Burst",
+    service: "Amazon RDS",
+    resourceId: "rds:db-cluster-aurora-prod",
+    region: "ap-south-1",
+    environment: "production",
+    detectedAt: "2026-10-23 14:40 UTC",
+    severity: "high",
+    status: "acknowledged",
+    baselineCost: 385.00,
+    observedCost: 720.00,
+    surgeAmount: 335.00,
+    rootCause: "Automated failover drill initiated cross-AZ write replication buffer bursts during peak ETL data ingestion.",
+    recommendation: "Schedule database failover simulations strictly in designated low-traffic maintenance windows."
+  },
+  {
+    id: "anom_03",
+    ruleId: "EGRESS-ANOMALY-BACKUP",
+    title: "Inter-Region Glacier S3 Vault Synchronization",
+    service: "Amazon S3",
+    resourceId: "s3://corp-analytics-archive-prod",
+    region: "us-east-1",
+    environment: "production",
+    detectedAt: "2026-10-24 02:10 UTC",
+    severity: "medium",
+    status: "uninvestigated",
+    baselineCost: 80.00,
+    observedCost: 260.00,
+    surgeAmount: 180.00,
+    rootCause: "Unfiltered daily database snapshot lifecycle rule transferred uncompressed logs cross-region.",
+    recommendation: "Compress Parquet snapshots before cross-region replication or enable S3 Lifecycle tiering transition."
+  }
+];
 
 /**
  * Predefined static savings benchmark tiers for landing page showcase.
