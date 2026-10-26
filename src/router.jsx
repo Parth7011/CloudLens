@@ -7,6 +7,8 @@ import OverviewPage from './pages/OverviewPage.jsx';
 import CostExplorerPage from './pages/CostExplorerPage.jsx';
 import BudgetsPage from './pages/BudgetsPage.jsx';
 import AnomaliesPage from './pages/AnomaliesPage.jsx';
+import OptimizationPage from './pages/OptimizationPage.jsx';
+import ReportsPage from './pages/ReportsPage.jsx';
 import PagePlaceholder from './components/PagePlaceholder.jsx';
 
 export default function AppRouter() {
@@ -36,38 +38,11 @@ export default function AppRouter() {
       <Route path="/anomalies" element={<AnomaliesPage />} />
 
       {/* Primary Pages 8–12: Pair 2 Ownership */}
-      <Route
-        path="/optimization"
-        element={
-          <PagePlaceholder
-            pageNumber={8}
-            pairOwner="Pair 2"
-            title="Rightsizing & Cost Optimization"
-            description="Actionable cost-reduction recommendations with estimated monthly dollar savings."
-            keyFeatures={[
-              "Idle compute and unattached storage detection",
-              "EC2 instance family rightsizing recommendations",
-              "Savings calculation estimates labeled clearly"
-            ]}
-          />
-        }
-      />
-      <Route
-        path="/reports"
-        element={
-          <PagePlaceholder
-            pageNumber={9}
-            pairOwner="Pair 2"
-            title="Financial Reports & Export Engine"
-            description="Pre-configured cost reports with date range selection and client-side CSV downloads."
-            keyFeatures={[
-              "Executive monthly summary and team allocation views",
-              "Client-side CSV generator utility",
-              "Export feedback states (loading, success, error)"
-            ]}
-          />
-        }
-      />
+      {/* Page 8: Optimization — implemented */}
+      <Route path="/optimization" element={<OptimizationPage />} />
+
+      {/* Page 9: Reports — implemented */}
+      <Route path="/reports" element={<ReportsPage />} />
       <Route
         path="/integrations"
         element={
