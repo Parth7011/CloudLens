@@ -8,6 +8,10 @@ import CostExplorerPage from './pages/CostExplorerPage.jsx';
 import BudgetsPage from './pages/BudgetsPage.jsx';
 import AnomaliesPage from './pages/AnomaliesPage.jsx';
 import PagePlaceholder from './components/PagePlaceholder.jsx';
+import IntegrationsPage from './pages/IntegrationsPage.jsx';
+import NotificationsPage from './pages/NotificationsPage.jsx';
+import SettingsPage from './pages/SettingsPage.jsx';
+
 
 export default function AppRouter() {
   return (
@@ -68,54 +72,9 @@ export default function AppRouter() {
           />
         }
       />
-      <Route
-        path="/integrations"
-        element={
-          <PagePlaceholder
-            pageNumber={10}
-            pairOwner="Pair 2"
-            title="Cloud Provider Integrations"
-            description="AWS billing adapter telemetry, connection status, mock sync triggers, and sync job history."
-            keyFeatures={[
-              "AWS provider connection card with sync telemetry",
-              "Simulated 'Sync Now' action with animated feedback",
-              "Zero-credential mock connection instructions"
-            ]}
-          />
-        }
-      />
-      <Route
-        path="/notifications"
-        element={
-          <PagePlaceholder
-            pageNumber={11}
-            pairOwner="Pair 2"
-            title="Notification Center & Alert Feed"
-            description="Event log of budget threshold warnings, anomaly discoveries, and sync completion events."
-            keyFeatures={[
-              "Unread count badge and filter",
-              "Mark as read and dismiss actions",
-              "Direct navigation links to triggered alerts"
-            ]}
-          />
-        }
-      />
-      <Route
-        path="/settings"
-        element={
-          <PagePlaceholder
-            pageNumber={12}
-            pairOwner="Pair 2"
-            title="Settings & Organization Preferences"
-            description="User profile preferences, default currency selection, and session-stored configurations."
-            keyFeatures={[
-              "Default currency and date range preferences",
-              "Organization metadata fields",
-              "Session-persisted settings notice"
-            ]}
-          />
-        }
-      />
+      <Route path="/integrations" element={<IntegrationsPage />} />
+      <Route path="/notifications" element={<NotificationsPage />} />
+      <Route path="/settings" element={<SettingsPage />} />
 
       {/* Catch-all Fallback */}
       <Route path="*" element={<Navigate to="/" replace />} />

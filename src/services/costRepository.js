@@ -49,3 +49,18 @@ export async function getAnomalies(filters = {}) {
 
   return anomalies;
 }
+
+export async function getIntegrations() {
+  await new Promise((resolve) => setTimeout(resolve, 80));
+  return {
+    provider: 'aws',
+    status: 'connected',
+    accountId: '123456789012',
+    regions: ['ap-south-1', 'us-east-1', 'us-west-2'],
+    dataSource: 'CUR 2.0 Billing Export',
+    lastSync: 'Today, 17:04 UTC',
+    recordsIngested: 28410,
+    activeAccounts: 14,
+    uptimePercent: 99.2,
+  };
+}
