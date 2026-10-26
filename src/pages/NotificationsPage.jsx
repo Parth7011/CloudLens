@@ -104,7 +104,7 @@ export default function NotificationsPage() {
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', minWidth: 0, overflowY: 'auto' }}>
         <DashboardHeader
           title="Notification Center"
-          subtitle="Budget alerts, anomaly discoveries, and sync events"
+          subtitle="Sample budget alerts, anomaly discoveries, and sync events (demo only)"
           selectedAccount={selectedAccount}
           onAccountChange={setSelectedAccount}
           onRefresh={() => setNotifications(MOCK_NOTIFICATIONS)}

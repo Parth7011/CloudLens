@@ -79,7 +79,7 @@ export default function IntegrationsPage() {
     setSyncing(true);
     setTimeout(() => {
       setSyncing(false);
-      setToast('Sync completed — 28,410 records refreshed.');
+      setToast('Demo refresh finished. No AWS sync was performed.');
       setTimeout(() => setToast(''), 3500);
     }, 2500);
   };
@@ -121,38 +121,38 @@ export default function IntegrationsPage() {
             {/* Connected Providers */}
             <div style={{ backgroundColor: '#ffffff', border: '1px solid #e0e0eb', borderRadius: '12px', padding: '18px 20px', boxShadow: '0 2px 8px rgba(0,0,0,0.02)' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-                <span style={{ fontSize: '0.8rem', color: '#575783', fontWeight: 600 }}>Connected Providers</span>
+                <span style={{ fontSize: '0.8rem', color: '#575783', fontWeight: 600 }}>Provider Status</span>
                 <span style={{ padding: '2px 8px', borderRadius: '9999px', backgroundColor: '#dcfce7', color: '#16a34a', fontSize: '0.72rem', fontWeight: 700 }}>Active</span>
               </div>
-              <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#181824', fontFamily: 'var(--font-display)' }}>1</div>
-              <div style={{ fontSize: '0.78rem', color: '#575783', marginTop: '4px' }}>AWS connected and healthy</div>
+              <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#181824', fontFamily: 'var(--font-display)' }}>AWS</div>
+              <div style={{ fontSize: '0.78rem', color: '#575783', marginTop: '4px' }}>No AWS account is connected</div>
             </div>
             {/* Last Sync */}
             <div style={{ backgroundColor: '#ffffff', border: '1px solid #e0e0eb', borderRadius: '12px', padding: '18px 20px', boxShadow: '0 2px 8px rgba(0,0,0,0.02)' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
                 <span style={{ fontSize: '0.8rem', color: '#575783', fontWeight: 600 }}>Last Sync</span>
-                <span style={{ padding: '2px 8px', borderRadius: '9999px', backgroundColor: '#eef2ff', color: '#2d62ff', fontSize: '0.72rem', fontWeight: 700 }}>Live</span>
+                <span style={{ padding: '2px 8px', borderRadius: '9999px', backgroundColor: '#eef2ff', color: '#2d62ff', fontSize: '0.72rem', fontWeight: 700 }}>Sample</span>
               </div>
-              <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#181824', fontFamily: 'var(--font-display)' }}>2m ago</div>
-              <div style={{ fontSize: '0.78rem', color: '#575783', marginTop: '4px' }}>Today, 17:04 UTC</div>
+              <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#181824', fontFamily: 'var(--font-display)' }}>Demo only</div>
+              <div style={{ fontSize: '0.78rem', color: '#575783', marginTop: '4px' }}>Example history shown below</div>
             </div>
             {/* Records Ingested */}
             <div style={{ backgroundColor: '#ffffff', border: '1px solid #e0e0eb', borderRadius: '12px', padding: '18px 20px', boxShadow: '0 2px 8px rgba(0,0,0,0.02)' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
                 <span style={{ fontSize: '0.8rem', color: '#575783', fontWeight: 600 }}>Records Ingested</span>
-                <span style={{ padding: '2px 8px', borderRadius: '9999px', backgroundColor: '#eef2ff', color: '#2d62ff', fontSize: '0.72rem', fontWeight: 700 }}>CUR 2.0</span>
+                <span style={{ padding: '2px 8px', borderRadius: '9999px', backgroundColor: '#eef2ff', color: '#2d62ff', fontSize: '0.72rem', fontWeight: 700 }}>Mock data</span>
               </div>
               <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#181824', fontFamily: 'var(--font-display)' }}>28,410</div>
-              <div style={{ fontSize: '0.78rem', color: '#575783', marginTop: '4px' }}>Billing rows loaded</div>
+              <div style={{ fontSize: '0.78rem', color: '#575783', marginTop: '4px' }}>Sample billing rows</div>
             </div>
             {/* Sync Health */}
             <div style={{ backgroundColor: '#ffffff', border: '1px solid #e0e0eb', borderRadius: '12px', padding: '18px 20px', boxShadow: '0 2px 8px rgba(0,0,0,0.02)' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
                 <span style={{ fontSize: '0.8rem', color: '#575783', fontWeight: 600 }}>Sync Health</span>
-                <span style={{ padding: '2px 8px', borderRadius: '9999px', backgroundColor: '#dcfce7', color: '#16a34a', fontSize: '0.72rem', fontWeight: 700 }}>Excellent</span>
+                <span style={{ padding: '2px 8px', borderRadius: '9999px', backgroundColor: '#dcfce7', color: '#16a34a', fontSize: '0.72rem', fontWeight: 700 }}>Unavailable</span>
               </div>
-              <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#181824', fontFamily: 'var(--font-display)' }}>99.2%</div>
-              <div style={{ fontSize: '0.78rem', color: '#575783', marginTop: '4px' }}>Uptime over last 30 days</div>
+              <div style={{ fontSize: '1.6rem', fontWeight: 800, color: '#181824', fontFamily: 'var(--font-display)' }}>Not connected</div>
+              <div style={{ fontSize: '0.78rem', color: '#575783', marginTop: '4px' }}>Live sync health is unavailable</div>
             </div>
           </div>
 
@@ -174,10 +174,10 @@ export default function IntegrationsPage() {
                     <span style={{ fontSize: '1.15rem', fontWeight: 800, color: '#181824', fontFamily: 'var(--font-display)' }}>Amazon Web Services</span>
                     <span style={{ padding: '3px 10px', borderRadius: '9999px', backgroundColor: '#dcfce7', color: '#16a34a', fontSize: '0.75rem', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '4px' }}>
                       <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#16a34a', display: 'inline-block' }} />
-                      Connected
+                      Demo Data
                     </span>
                   </div>
-                  <span style={{ fontSize: '0.82rem', color: '#575783' }}>CUR 2.0 Billing Export via mock IAM adapter</span>
+                  <span style={{ fontSize: '0.82rem', color: '#575783' }}>CUR 2.0 sample data; no AWS account connected</span>
                 </div>
               </div>
               {/* Sync Now Button */}
@@ -196,14 +196,14 @@ export default function IntegrationsPage() {
                 }}
               >
                 <RefreshCw size={15} style={{ animation: syncing ? 'spin 1s linear infinite' : 'none' }} />
-                {syncing ? 'Syncing...' : 'Sync Now'}
+                {syncing ? 'Simulating...' : 'Simulate Sync'}
               </button>
             </div>
 
             {/* Connection Details Grid */}
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', marginBottom: '24px' }}>
               <div style={{ backgroundColor: '#f8f8fc', borderRadius: '10px', padding: '14px 16px' }}>
-                <div style={{ fontSize: '0.75rem', color: '#575783', fontWeight: 600, marginBottom: '4px' }}>Account ID</div>
+                <div style={{ fontSize: '0.75rem', color: '#575783', fontWeight: 600, marginBottom: '4px' }}>Sample Account ID</div>
                 <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#181824', fontFamily: 'monospace' }}>123456789012</div>
               </div>
               <div style={{ backgroundColor: '#f8f8fc', borderRadius: '10px', padding: '14px 16px' }}>
@@ -216,11 +216,11 @@ export default function IntegrationsPage() {
               </div>
               <div style={{ backgroundColor: '#f8f8fc', borderRadius: '10px', padding: '14px 16px' }}>
                 <div style={{ fontSize: '0.75rem', color: '#575783', fontWeight: 600, marginBottom: '4px' }}>Last Sync</div>
-                <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#181824' }}>Today, 17:04 UTC</div>
+                <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#181824' }}>Example: 17:04 UTC</div>
               </div>
               <div style={{ backgroundColor: '#f8f8fc', borderRadius: '10px', padding: '14px 16px' }}>
                 <div style={{ fontSize: '0.75rem', color: '#575783', fontWeight: 600, marginBottom: '4px' }}>Records Ingested</div>
-                <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#181824' }}>28,410 rows</div>
+                <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#181824' }}>28,410 sample rows</div>
               </div>
               <div style={{ backgroundColor: '#f8f8fc', borderRadius: '10px', padding: '14px 16px' }}>
                 <div style={{ fontSize: '0.75rem', color: '#575783', fontWeight: 600, marginBottom: '4px' }}>Scope</div>
@@ -231,9 +231,9 @@ export default function IntegrationsPage() {
             {/* Sync Telemetry Pills */}
             <div style={{ display: 'flex', gap: '10px', marginBottom: '28px', flexWrap: 'wrap' }}>
               {[
-                { icon: <Database size={13} />, text: '28,410 Records Ingested', bg: '#eef2ff', color: '#2d62ff' },
-                { icon: <Server size={13} />, text: '14 Accounts Active', bg: '#dcfce7', color: '#16a34a' },
-                { icon: <Globe size={13} />, text: 'Multi-Region', bg: '#fef3c7', color: '#d97706' },
+                { icon: <Database size={13} />, text: '28,410 Sample Records', bg: '#eef2ff', color: '#2d62ff' },
+                { icon: <Server size={13} />, text: '14 Demo Accounts', bg: '#dcfce7', color: '#16a34a' },
+                { icon: <Globe size={13} />, text: 'Sample Regions', bg: '#fef3c7', color: '#d97706' },
               ].map((pill, i) => (
                 <div key={i} style={{
                   display: 'flex', alignItems: 'center', gap: '6px',
@@ -250,7 +250,7 @@ export default function IntegrationsPage() {
             {/* Sync Job History */}
             <div>
               <div style={{ fontSize: '0.9rem', fontWeight: 700, color: '#181824', marginBottom: '12px', fontFamily: 'var(--font-display)' }}>
-                Sync Job History
+                Sample Sync History
               </div>
               <div style={{ border: '1px solid #e0e0eb', borderRadius: '10px', overflow: 'hidden' }}>
                 <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.83rem' }}>
@@ -333,9 +333,9 @@ export default function IntegrationsPage() {
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {[
-                { step: '1', icon: <Shield size={14} />, title: 'Read-Only IAM Policy', desc: 'CloudLens simulates a scoped AWS IAM role with read-only access to billing data. No write permissions are granted.' },
+                { step: '1', icon: <Shield size={14} />, title: 'Future Read-Only IAM Policy', desc: 'A real AWS integration would use an approved, least-privilege read-only role. No AWS role is connected in this demo.' },
                 { step: '2', icon: <Database size={14} />, title: 'CUR 2.0 Export Adapter', desc: 'Billing records are loaded from a static mock dataset that mirrors the AWS Cost and Usage Report 2.0 schema.' },
-                { step: '3', icon: <RefreshCw size={14} />, title: 'Hourly Sync Simulation', desc: 'The platform simulates hourly sync cycles. The "Sync Now" action replays the most recent dataset load.' },
+                { step: '3', icon: <RefreshCw size={14} />, title: 'Sync Demo', desc: 'The button runs a visual demo flow only; it does not contact AWS or refresh billing records.' },
                 { step: '4', icon: <Zap size={14} />, title: 'No Real Credentials Needed', desc: 'This demo works entirely with static data. No AWS account, access keys, or S3 bucket are required to explore CloudLens.' },
               ].map((item) => (
                 <div key={item.step} style={{ display: 'flex', gap: '14px', alignItems: 'flex-start' }}>

@@ -168,7 +168,7 @@ export default function SettingsPage() {
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', minWidth: 0, overflowY: 'auto' }}>
         <DashboardHeader
           title="Settings"
-          subtitle="Manage your profile, organization, and platform preferences"
+          subtitle="Demo profile and preferences; changes are not saved to a server"
           selectedAccount={selectedAccount}
           onAccountChange={setSelectedAccount}
           onRefresh={() => {}}
@@ -260,7 +260,7 @@ export default function SettingsPage() {
                     </FieldRow>
                   </div>
                   <div style={{ marginTop: '8px' }}>
-                    <SaveButton onClick={() => showToast('Profile saved successfully.')} label="Save Changes" />
+                    <SaveButton onClick={() => showToast('Profile updated for this demo session only.')} label="Save Changes" />
                   </div>
                 </div>
               )}
@@ -307,7 +307,7 @@ export default function SettingsPage() {
                   </FieldRow>
 
                   <div style={{ marginTop: '8px' }}>
-                    <SaveButton onClick={() => showToast('Organization settings saved.')} label="Save Organization" />
+                    <SaveButton onClick={() => showToast('Organization updated for this demo session only.')} label="Save Organization" />
                   </div>
                 </div>
               )}
@@ -395,11 +395,11 @@ export default function SettingsPage() {
                   }}>
                     <Info size={15} color="#2d62ff" style={{ flexShrink: 0, marginTop: '1px' }} />
                     <p style={{ margin: 0, fontSize: '0.8rem', color: '#2d62ff', fontWeight: 600, lineHeight: '1.5' }}>
-                      These preferences are persisted to your browser session. They will reset if you clear local storage or use a different browser.
+                      Demo only: changes stay in page memory and are not saved to browser storage or a server.
                     </p>
                   </div>
 
-                  <SaveButton onClick={() => showToast('Preferences saved.')} label="Save Preferences" />
+                  <SaveButton onClick={() => showToast('Preferences updated for this demo session only.')} label="Save Preferences" />
                 </div>
               )}
 
@@ -445,12 +445,13 @@ export default function SettingsPage() {
                   </div>
 
                   {/* Slack Webhook */}
-                  <FieldRow label="Slack Webhook URL">
+                  <FieldRow label="Slack Webhook (Unavailable in demo)">
                     <input
                       type="text"
                       value={notifSettings.slackWebhook}
                       onChange={(e) => setNotifSettings({ ...notifSettings, slackWebhook: e.target.value })}
-                      placeholder="https://hooks.slack.com/services/..."
+                      placeholder="Webhook configuration is unavailable in the demo"
+                      disabled
                       style={{
                         width: '100%', padding: '10px 14px', borderRadius: '9px',
                         border: '1.5px solid #e0e0eb', backgroundColor: '#ffffff',
@@ -460,7 +461,7 @@ export default function SettingsPage() {
                     />
                   </FieldRow>
                   <div style={{ marginTop: '8px' }}>
-                    <SaveButton onClick={() => showToast('Notification settings saved.')} label="Save Notification Settings" />
+                    <SaveButton onClick={() => showToast('Notification preferences updated for this demo session only.')} label="Save Notification Settings" />
                   </div>
                 </div>
               )}

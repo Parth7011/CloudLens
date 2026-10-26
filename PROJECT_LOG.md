@@ -4,7 +4,7 @@
 **Rule:** Update this file after every meaningful work session. Never fabricate progress or delete historical entries.
 
 ## Current status
-- **Phase:** Phase 1 Foundation & Pages 1–7 Complete (Landing Page, Login, Sign Up, Overview, Cost Explorer, Budgets, Anomalies)
+- **Phase:** Phase 1 frontend pages 1–12 implemented with mock data; integrated build verification in progress
 - **Frontend:** React + Vite application operational at `http://localhost:5173/`
 - **Backend:** Not started
 - **Database:** Not created
@@ -19,9 +19,9 @@
 - **Page 5 (Cost Explorer):** Multi-dimensional filters, daily run-rate visualizer, sortable/paginated records, and CSV export
 - **Page 6 (Budgets):** Macro spend ceiling, active guardrail cards, progress bars, threshold adjustment, and budget creation
 - **Page 7 (Anomalies):** KPI flags, severity/status filters, triage feed with live status transitions, and root-cause telemetry modal
-- **Pages 8–12:** Routable with contract-compliant placeholder views aligned to CloudLens styling
+- **Pages 8–12:** Optimization, Reports, Integrations, Notifications, and Settings implemented with demo data
 - **Pair 1:** Landing Page (done), Login (done), Sign Up (done), Overview (done), Cost Explorer (done), Budgets (done), Anomalies (done)
-- **Pair 2:** Optimization, Reports, Integrations, Notifications, Settings
+- **Pair 2:** Optimization (done), Reports (done), Integrations (done), Notifications (done), Settings (done)
 
 ## Current decisions
 - Product branding officially adopted: **CloudLens**.
@@ -44,12 +44,10 @@
 - Browser automation driver issue: Antigravity browser subagent encountered an environment restriction downloading Playwright binaries; manual inspection at `http://localhost:5173/` is available.
 
 ## Next actions
-1. Pair 1 implements Page 2 (Login) and Page 3 (Sign Up) with mock authentication state.
-2. Pair 1 implements Page 4 (Executive Overview Dashboard) with KPI summary cards and spend trend charts.
-3. Pair 1 implements Pages 5–7 (Cost Explorer, Budgets, Anomalies).
-4. Pair 2 follows the explicit handover in `docs/IMPLEMENTATION_PLAN.md` and implements Pages 8–12.
-5. Integrate and test the complete 12-page frontend.
-6. Begin Phase 4 Express modular monolith and MySQL schema.
+1. Complete the in-progress merge of Pair 1 and Pair 2 page work and push the integrated result.
+2. Verify all 12 routes and primary interactions in the integrated frontend.
+3. Confirm the MySQL access approach (`mysql2` vs Prisma) before Phase 4.
+4. Begin the Express modular monolith and MySQL schema after frontend sign-off.
 
 ## Session history
 
@@ -411,3 +409,59 @@
   - HTTP checks: `http://localhost:5173/costs`, `/budgets`, `/anomalies` all returned HTTP 200 OK.
   - Git status: Verified uncommitted; zero commits or pushes executed.
 - **Next Steps:** Await user review and confirmation before committing or advancing to next pages.
+
+### 2026-10-26 (Session 13) — Pages 8 & 9 Implemented (Optimization, Reports)
+- **Scope:** Pair 2 Scope: Implemented Page 8 (Rightsizing & Cost Optimization at `/optimization`) and Page 9 (Financial Reports & Export Engine at `/reports`) following established Pair 1 architecture, design system, and data repository patterns.
+- **Features Completed:**
+  - **Page 8: Rightsizing & Cost Optimization (`src/pages/OptimizationPage.jsx`):**
+    - KPI Summary Strip: Est. Monthly Savings, Est. Annual Recovery, Idle Resources Found, Rightsizing Opportunities (all labeled as estimates).
+    - Savings Disclaimer Banner: Clearly marks all figures as pre-computed demo estimates; no AI-generated recommendations.
+    - Triple Filter Bar: Category (All/Compute/Database/Storage/Network), Impact (All/High/Medium/Low), Status (All/New/In Review/Applied/Dismissed) + search by title or resource ID.
+    - 8 Recommendation Cards: Category icon, service badge, impact badge, status badge, description, current vs. recommended spec, estimated monthly/annual savings panel.
+    - Live State Transitions: "Mark Applied" and "Dismiss" buttons update card status in real time with toast confirmation.
+    - Detail Modal: Full resource stats grid, spec comparison panel (current to recommended), analysis text, savings breakdown with disclaimer, and close/apply actions. Click outside closes modal.
+    - Loading, empty, and error states.
+  - **Page 9: Financial Reports & Export Engine (`src/pages/ReportsPage.jsx`):**
+    - Report Type Tabs: Executive Summary, Service Breakdown, Team Allocation, Daily Trend — pill toggle with active state.
+    - **Executive Summary**: 3 KPI tiles (MTD Spend, Budget Utilization with progress bar, EOM Forecast), top 5 services horizontal bar chart.
+    - **Service Breakdown**: Fully sortable table with region, environment pills, MoM change directional icons, and spend proportion bars.
+    - **Team Allocation**: Team-level cost attribution table with cost center codes, headcount, primary service, spend, % share, and allocation bars.
+    - **Daily Trend**: SVG line chart with area fill (25 days), dashed budget baseline at $1,610/day, anomaly dot markers with pulse ring on Oct 23, axis labels, legend.
+    - **Export CSV**: Downloads active report as `.csv` with `cloudlens-{reportType}-{date}.csv` filename. States: loading (spinner), success (green), error (red).
+    - Loading, empty, and error states.
+  - **Data Access (`src/mocks/costData.js`, `src/services/costRepository.js`):**
+    - Added `MOCK_OPTIMIZATION_RECOMMENDATIONS` (8 records across Compute, Database, Storage, Network).
+    - Added `MOCK_REPORTS` fixture (executiveSummary, serviceBreakdown, teamAllocation, dailyTrend).
+    - Added `getOptimizationRecommendations(filters)` and `getReportData(type)` to repository.
+  - **Routing (`src/router.jsx`):** Replaced placeholder routes for `/optimization` and `/reports` with real component imports.
+- **Files Created/Modified:**
+  - `src/pages/OptimizationPage.jsx` (created)
+  - `src/pages/ReportsPage.jsx` (created)
+  - `src/mocks/costData.js` (appended `MOCK_OPTIMIZATION_RECOMMENDATIONS` and `MOCK_REPORTS`)
+  - `src/services/costRepository.js` (added `getOptimizationRecommendations()` and `getReportData()`)
+  - `src/router.jsx` (replaced placeholders for pages 8 and 9)
+  - `PROJECT_LOG.md` (updated)
+- **Tests & Checks Run:**
+  - `npm run build`: Succeeded in 5.77s with 0 errors. Bundle: 478 kB, 1985 modules transformed.
+  - `npm install` run to restore node_modules (were absent post-session reset); 0 vulnerabilities found.
+- **Decisions Made:**
+  - Savings labeled as estimates per IMPLEMENTATION_PLAN constraint; no AI recommendations.
+  - No new npm packages introduced — SVG charts hand-coded inline.
+  - Team cost allocation includes footer note clarifying mock data nature; no real tagging implied.
+  - No `git commit` or `git push` performed; awaiting user review.
+- **Known Issues:** Pages 10 (Integrations), 11 (Notifications), 12 (Settings) remain as placeholders.
+- **Next Steps:**
+  1. User reviews and approves Pages 8 and 9.
+  2. Implement Pages 10, 11, 12.
+  3. Frontend integration testing across all 12 routes.
+  4. Begin Phase 4: Express modular monolith + MySQL schema.
+
+### 2026-10-26 (Session 14) — Pair 2 Pages Integrated
+- **Scope:** Integrated Pair 2 pages 8–12 with the existing frontend and resolved the active merge between local page work and `origin/main`.
+- **Files Changed:** `src/router.jsx`, `src/services/costRepository.js`, `src/mocks/costData.js`, `src/pages/OptimizationPage.jsx`, `src/pages/ReportsPage.jsx`, `src/pages/IntegrationsPage.jsx`, `src/pages/NotificationsPage.jsx`, `src/pages/SettingsPage.jsx`, and this log.
+- **Features Completed:** Wired all five Pair 2 routes to their implemented pages; retained Optimization/Reports fixtures and repository functions. Updated Integrations to identify sample AWS data and a simulated sync that does not contact AWS. Updated Notifications and Settings to clarify demo/session-only behavior; disabled the unavailable Slack webhook field.
+- **Tests/Checks:** `npm run build` passed after resolving route/repository conflicts and again after page updates (Vite production build, 1,987 modules transformed). `git diff --check` reported no whitespace errors.
+- **Merge:** Combined Pair 1's existing pages 10–12 with the Pair 2 Optimization/Reports implementation; no shared route or repository functions were dropped.
+- **Git:** Merge commit and push are pending at the time of this log entry.
+- **Known Issues:** Full interactive/browser verification across all 12 routes remains to be completed. Provider data and settings remain mock-only; no AWS connection or server persistence exists.
+- **Next Steps:** Commit and push the integrated changes to `origin/main`, then verify all 12 routes and primary interactions.

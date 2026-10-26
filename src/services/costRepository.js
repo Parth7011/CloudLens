@@ -1,4 +1,4 @@
-import { MOCK_COST_RECORDS, MOCK_OVERVIEW_KPIS, MOCK_BUDGETS, MOCK_ANOMALIES } from '../mocks/costData.js';
+import { MOCK_COST_RECORDS, MOCK_OVERVIEW_KPIS, MOCK_BUDGETS, MOCK_ANOMALIES, MOCK_OPTIMIZATION_RECOMMENDATIONS, MOCK_REPORTS } from '../mocks/costData.js';
 
 /**
  * Cost Repository - Decoupled data access layer.
@@ -50,11 +50,39 @@ export async function getAnomalies(filters = {}) {
   return anomalies;
 }
 
+export async function getOptimizationRecommendations(filters = {}) {
+  await new Promise((resolve) => setTimeout(resolve, 80));
+  let recs = [...MOCK_OPTIMIZATION_RECOMMENDATIONS];
+
+  if (filters.category && filters.category !== 'all') {
+    recs = recs.filter((r) => r.category.toLowerCase() === filters.category.toLowerCase());
+  }
+
+  if (filters.status && filters.status !== 'all') {
+    recs = recs.filter((r) => r.status === filters.status);
+  }
+
+  if (filters.impact && filters.impact !== 'all') {
+    recs = recs.filter((r) => r.impact === filters.impact);
+  }
+
+  return recs;
+}
+
+export async function getReportData(type = 'executiveSummary') {
+  await new Promise((resolve) => setTimeout(resolve, 80));
+  if (type === 'executiveSummary') return { ...MOCK_REPORTS.executiveSummary };
+  if (type === 'serviceBreakdown') return [...MOCK_REPORTS.serviceBreakdown];
+  if (type === 'teamAllocation') return [...MOCK_REPORTS.teamAllocation];
+  if (type === 'dailyTrend') return [...MOCK_REPORTS.dailyTrend];
+  return MOCK_REPORTS;
+}
+
 export async function getIntegrations() {
   await new Promise((resolve) => setTimeout(resolve, 80));
   return {
     provider: 'aws',
-    status: 'connected',
+    status: 'demo',
     accountId: '123456789012',
     regions: ['ap-south-1', 'us-east-1', 'us-west-2'],
     dataSource: 'CUR 2.0 Billing Export',
