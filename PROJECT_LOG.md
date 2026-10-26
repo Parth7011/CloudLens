@@ -10,8 +10,9 @@
 - **Database:** Not created
 - **AWS integration:** Not started (realistic mock data isolated in repository layer)
 - **AI:** Explicitly deferred
-- **Design direction:** Modern, light SaaS aesthetic with obsidian/slate accents, crisp cards, hairline borders, and electric blue primary highlights.
+- **Current UI:** The existing implementation has a defined visual style; the final product design direction remains unapproved, consistent with the PRD and `AGENTS.md`.
 - **Primary pages planned:** 12
+- **GitHub attribution:** Copilot co-author attribution has been removed from the latest `main` commit; the branch history was rewritten with approval.
 - **Page 1 (Landing Page):** Clean modern SaaS presentation with light theme and interactive calculator
 - **Page 2 (Login):** Complete with client validation, remember me, back-to-home navigation, and session transition
 - **Page 3 (Sign Up):** Complete with account onboarding, validation, back-to-home navigation, and quick access
@@ -24,14 +25,10 @@
 - **Pair 2:** Optimization (done), Reports (done), Integrations (done), Notifications (done), Settings (done)
 
 ## Current decisions
-- Product branding officially adopted: **CloudLens**.
 - Use React + Vite + JavaScript/JSX; no TypeScript.
-- Coda.co design token architecture: Charcoal (`#202020`), Warm Cream (`#F8F9EB`), Olive Cream (`#EDEEE1`), Forest Green (`#003D21`), Mint (`#AAFDC0`), Muted Olive (`#5A5A4F`).
-- High-contrast alternating section cadence: Warm Cream -> Deep Charcoal -> Olive Cream -> Warm Cream -> Deep Charcoal -> Warm Cream -> Forest Green -> Deep Charcoal.
-- Typography: Archivo (Display headlines, tight leading) and Inter (Body), loaded via Google Fonts in `index.html`.
-- 3D Visual Centerpiece: Glossy forest-green lacquer sculptural Torus Knot with `MeshPhysicalMaterial` (roughness 0.14, clearcoat 1.0, transmission 0.15), 3-point studio lighting with mint rim light, orbiting telemetry nodes (EC2, S3, RDS, EKS, Lambda), pointer parallax, and accessible reduced-motion fallback.
+- Existing UI branding and styling (including its typography, palette, and landing-page visuals) describe the current implementation only; the docs still mark product naming and final design direction as undecided, so team approval remains open.
 - Decouple all data access behind `src/services/data/*Repository.js` using `src/mocks/*Data.js`.
-- Use MySQL for the planned backend database (direct SQL with `mysql2` is default).
+- Use MySQL for the planned backend database; `mysql2` is the proposed direct-SQL option pending team confirmation.
 - Build the frontend first with realistic mock AWS billing data.
 - Plan the backend as a modular monolith using Node.js + Express.
 - AWS is the first provider for later real integration.
@@ -44,9 +41,11 @@
 - Browser automation driver issue: Antigravity browser subagent encountered an environment restriction downloading Playwright binaries; manual inspection at `http://localhost:5173/` is available.
 
 ## Next actions
-1. Verify all 12 routes and primary interactions in the integrated frontend.
-2. Confirm the MySQL access approach (`mysql2` vs Prisma) before Phase 4.
-3. Begin the Express modular monolith and MySQL schema after frontend sign-off.
+1. **Repository owner:** Confirm GitHub's contributor list reflects the updated commit metadata after it refreshes.
+2. **Integration lead / both pairs:** Verify all 12 routes and primary interactions in the integrated frontend.
+3. **Team:** Confirm the product name and design direction; the existing UI style is implemented but not recorded as approved.
+4. **Team / backend owner:** Confirm the MySQL access approach (`mysql2` vs Prisma) before Phase 4.
+5. **Backend owner:** Begin the Express modular monolith and MySQL schema after frontend sign-off and the database decision.
 
 ## Session history
 
@@ -461,6 +460,27 @@
 - **Features Completed:** Wired all five Pair 2 routes to their implemented pages; retained Optimization/Reports fixtures and repository functions. Updated Integrations to identify sample AWS data and a simulated sync that does not contact AWS. Updated Notifications and Settings to clarify demo/session-only behavior; disabled the unavailable Slack webhook field.
 - **Tests/Checks:** `npm run build` passed after resolving route/repository conflicts and again after page updates (Vite production build, 1,987 modules transformed). `git diff --check` reported no whitespace errors.
 - **Merge:** Combined Pair 1's existing pages 10–12 with the Pair 2 Optimization/Reports implementation; no shared route or repository functions were dropped.
-- **Git:** Integrated commit `b0caa93` was pushed to `origin/main`; local and remote `main` matched after push. A follow-up log-only commit is being recorded.
+- **Git:** Integrated commit `b0caa93` was pushed to `origin/main`; local and remote `main` matched after push. The follow-up log-only commit was recorded as `63a8365`.
 - **Known Issues:** Full interactive/browser verification across all 12 routes remains to be completed. Provider data and settings remain mock-only; no AWS connection or server persistence exists.
 - **Next Steps:** Verify all 12 routes and primary interactions, then prepare the frontend sign-off and Phase 4 database decision.
+
+### 2026-10-26 (Session 15) — Project Log Status Reconciliation
+- **Scope:** Updated the current-status and next-actions sections to distinguish existing UI implementation from team-approved product decisions, consistent with the PRD and `AGENTS.md`.
+- **Files Changed:** `PROJECT_LOG.md` only.
+- **Features Completed:** None; no product or code changes were made.
+- **Tests/Checks:** No application tests run (log-only change). Confirmed the worktree was clean before this update and the latest commit was `63a8365` (`docs: record Pair 2 page push`).
+- **Known Issues/Blockers:** Route and interaction verification remains outstanding; product-name/design approval and the MySQL access decision remain open.
+- **Decisions Made:** Did not claim new implementation progress. Existing visual styling is recorded as implemented UI, not as an approved design direction.
+- **Shared Files/Contracts Changed:** None.
+- **Next Steps / Suggested Owners:** Integration lead and both pairs to verify the 12 routes and main interactions; team to confirm product naming/design and MySQL access approach; backend owner to start Phase 4 after frontend sign-off.
+- **Handover:** Pair 1 and Pair 2 can continue with the existing implementation. No ownership or contract changes were made.
+
+### 2026-10-27 (Session 16) — Remove Copilot Commit Attribution
+- **Scope:** Removed the Copilot co-author trailer from the latest published `main` commit at the repository owner's request and with explicit approval to rewrite published history.
+- **Files Changed:** `PROJECT_LOG.md`.
+- **Features Completed:** None; no application behavior changed. Updated the latest commit metadata so GitHub no longer attributes it to Copilot.
+- **Tests/Checks:** Verified the replacement commit message has no Copilot attribution; `git diff --check` passed. No application tests run.
+- **Decisions Made:** Rewrote only the latest commit using a lease-protected force push; prior commit history was left unchanged.
+- **Known Issues/Blockers:** GitHub contributor counts may take time to refresh.
+- **Next Steps / Suggested Owners:** Repository owner to check the contributor list once GitHub recalculates it; existing frontend verification and team decisions remain as listed above.
+- **Handover:** No application files or shared contracts changed.
