@@ -65,22 +65,22 @@ export default function Footer() {
             </h4>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.85rem', color: '#575783' }}>
               <li>
-                <Link to="/overview" style={{ color: '#575783', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => (e.target.style.color = '#181824')} onMouseLeave={(e) => (e.target.style.color = '#575783')}>
+                <Link to="/costs" style={{ color: '#575783', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => (e.target.style.color = '#181824')} onMouseLeave={(e) => (e.target.style.color = '#575783')}>
                   Cost Explorer
                 </Link>
               </li>
               <li>
-                <Link to="/overview" style={{ color: '#575783', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => (e.target.style.color = '#181824')} onMouseLeave={(e) => (e.target.style.color = '#575783')}>
+                <Link to="/budgets" style={{ color: '#575783', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => (e.target.style.color = '#181824')} onMouseLeave={(e) => (e.target.style.color = '#575783')}>
                   Budget Thresholds
                 </Link>
               </li>
               <li>
-                <Link to="/overview" style={{ color: '#575783', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => (e.target.style.color = '#181824')} onMouseLeave={(e) => (e.target.style.color = '#575783')}>
+                <Link to="/anomalies" style={{ color: '#575783', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => (e.target.style.color = '#181824')} onMouseLeave={(e) => (e.target.style.color = '#575783')}>
                   Rule Anomaly Detection
                 </Link>
               </li>
               <li>
-                <Link to="/overview" style={{ color: '#575783', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => (e.target.style.color = '#181824')} onMouseLeave={(e) => (e.target.style.color = '#575783')}>
+                <Link to="/optimization" style={{ color: '#575783', textDecoration: 'none', transition: 'color 0.2s' }} onMouseEnter={(e) => (e.target.style.color = '#181824')} onMouseLeave={(e) => (e.target.style.color = '#575783')}>
                   Right-Sizing Advisor
                 </Link>
               </li>

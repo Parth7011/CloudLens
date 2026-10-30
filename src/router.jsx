@@ -26,6 +26,13 @@ export default function AppRouter() {
 
       {/* Primary Page 4: Executive Overview Dashboard */}
       <Route path="/overview" element={<OverviewPage />} />
+      <Route path="/dashboard" element={<Navigate to="/overview" replace />} />
+
+      {/* Primary Pages 5, 6, 7: Core FinOps Capabilities */}
+      <Route path="/costs" element={<CostExplorerPage />} />
+      <Route path="/cost-explorer" element={<Navigate to="/costs" replace />} />
+      <Route path="/budgets" element={<BudgetsPage />} />
+      <Route path="/anomalies" element={<AnomaliesPage />} />
 
       {/* Primary Pages 8–12: Pair 2 Ownership */}
       <Route path="/optimization" element={<OptimizationPage />} />
